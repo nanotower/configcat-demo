@@ -1,0 +1,48 @@
+
+.grid-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  position: relative;
+  border: 1px solid transparent; /* Default transparent border */
+}
+
+.grid-box.enabled {
+  background-color: #4caf50; /* Green */
+  border: 1px solid black;
+}
+
+.grid-box.disabled {
+  background-color: rgba(255, 0, 0, 0.1); /* Red with 0.1% opacity */
+}
+
+.grid-box.loading {
+  background-color: #9e9e9e; /* Gray */
+}
+
+.grid-box .tooltip {
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.grid-box:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip p {
+    margin: 4px 0;
+}
+
