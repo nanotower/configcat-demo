@@ -53,7 +53,7 @@
 .grid-box .tooltip {
   visibility: hidden;
   width: 250px; /* Slightly wider tooltip */
-  background-color: rgba(30, 30, 30, 0.9); /* Darker, semi-transparent background */
+  background-color: rgb(30, 30, 30); /* Darker, semi-transparent background */
   color: #ffffff;
   text-align: left;
   border-radius: 10px; /* More rounded tooltip */
