@@ -2,7 +2,7 @@ export function generateUsers() {
   const users = [];
   const userTypes = ["A", "B", "C", "D"];
   const regions = ["US", "EU", "ASIA", "LATAM"];
-  const tiers = ["free", "premium", "enterprise"];
+
 
   for (let i = 0; i < 80; i++) {
     const userType = userTypes[i % 4];

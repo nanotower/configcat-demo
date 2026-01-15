@@ -9,19 +9,22 @@ const EnvironmentTab = ({ users }) => {
 
   return (
     <div>
-      <div className="tabs">
-        <button
-          className={activeTab === 'envA' ? 'active' : ''}
-          onClick={() => setActiveTab('envA')}
-        >
-          Environment A
-        </button>
-        <button
-          className={activeTab === 'envB' ? 'active' : ''}
-          onClick={() => setActiveTab('envB')}
-        >
-          Environment B
-        </button>
+      <div className="tabs-container">
+        <div className="tabs">
+          <button
+            className={activeTab === 'envA' ? 'active' : ''}
+            onClick={() => setActiveTab('envA')}
+          >
+            Environment A
+          </button>
+          <button
+            className={activeTab === 'envB' ? 'active' : ''}
+            onClick={() => setActiveTab('envB')}
+          >
+            Environment B
+          </button>
+        </div>
+
       </div>
 
       <div className="tab-content">

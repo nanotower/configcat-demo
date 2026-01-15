@@ -1,9 +1,26 @@
+.grid-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  color: #ffffff; /* White color for the title */
+}
+
+.grid-title h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); /* Adjusted for better responsiveness and box size */
+  gap: 0.75rem;
+  padding: 1.5rem;
+  /* background-color: var(--background); Removed as main now has glass effect */
+  border-radius: 0.5rem;
 }
 
 /* Responsive layout */

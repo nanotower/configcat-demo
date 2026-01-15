@@ -1,48 +1,90 @@
-
 .grid-box {
   width: 100%;
   aspect-ratio: 1 / 1;
-  transition: background-color 0.3s ease, border 0.3s ease;
+  transition: all 0.3s ease; /* Smoother transitions for all properties */
   position: relative;
-  border: 1px solid transparent; /* Default transparent border */
+  border-radius: 15px; /* More rounded corners */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px); /* Frosted glass effect for boxes */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Light border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle default shadow */
+}
+
+.grid-box:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  border-color: rgba(255, 255, 255, 0.5); /* Lighter border on hover */
 }
 
 .grid-box.enabled {
-  background-color: #4caf50; /* Green */
-  border: 1px solid black;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%); /* Vibrant coral red gradient */
+  box-shadow: 0 4px 15px rgba(229, 57, 53, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2); /* Red glow with inner highlight */
 }
 
 .grid-box.disabled {
-  background-color: rgba(255, 0, 0, 0.1); /* Red with 0.1% opacity */
+  background: rgba(255, 255, 255, 0.1); /* Faint pink/white, transparent */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), inset 0 0 5px rgba(255, 255, 255, 0.2); /* Subtle white glow */
+  border: 2px solid #ffdddd;
 }
 
 .grid-box.loading {
-  background-color: #9e9e9e; /* Gray */
+  background: rgba(255, 255, 255, 0.05); /* Very faint background for loading */
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1), inset 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
 }
 
 .grid-box .tooltip {
   visibility: hidden;
-  width: 200px;
-  background-color: #555;
-  color: #fff;
+  width: 250px; /* Slightly wider tooltip */
+  background-color: rgba(30, 30, 30, 0.9); /* Darker, semi-transparent background */
+  color: #ffffff;
   text-align: left;
-  border-radius: 6px;
-  padding: 5px 10px;
+  border-radius: 10px; /* More rounded tooltip */
+  padding: 1rem;
   position: absolute;
-  z-index: 1;
-  bottom: 125%;
+  z-index: 100; /* Ensure tooltip is on top */
+  bottom: calc(100% + 10px); /* Position above the box with a gap */
   left: 50%;
-  margin-left: -100px;
+  transform: translateX(-50%) translateY(10px); /* Center and initial slight offset */
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Clearer shadow for tooltip */
+  pointer-events: none; /* Allow interaction with elements behind the tooltip */
 }
 
 .grid-box:hover .tooltip {
   visibility: visible;
   opacity: 1;
+  transform: translateX(-50%) translateY(0); /* Move to final position */
 }
 
 .tooltip p {
-    margin: 4px 0;
+  margin: 0.4rem 0; /* More spacing for tooltip text */
+  line-height: 1.4;
 }
 
+.tooltip p:first-child {
+  margin-top: 0;
+}
+
+.tooltip p:last-child {
+  margin-bottom: 0;
+}

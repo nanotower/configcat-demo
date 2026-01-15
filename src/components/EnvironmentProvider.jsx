@@ -1,11 +1,12 @@
 import { ConfigCatProvider } from 'configcat-react';
 import { PollingMode } from 'configcat-common';
 import { CONFIG } from '../constants/config';
+import '../styles/EnvironmentProvider.css';
 
 const EnvironmentProvider = ({ sdkKey, children, environmentName }) => {
   return (
     <div>
-      <h2>{environmentName}</h2>
+
       <ConfigCatProvider
         sdkKey={sdkKey}
         pollingMode={PollingMode.AutoPoll}
