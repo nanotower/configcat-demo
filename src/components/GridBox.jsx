@@ -1,15 +1,21 @@
-import { useFeatureFlag } from 'configcat-react';
+import { useBooleanFlagValue } from '@openfeature/react-sdk';
 import '../styles/GridBox.css';
 
 const GridBox = ({ user, flagKey, defaultValue }) => {
-  const { value: flagValue, loading } = useFeatureFlag(
+  const flagValue = useBooleanFlagValue(
     flagKey,
     defaultValue,
-    user
+    {
+      targetingKey: user.identifier,
+      email: user.email,
+      userType: user.custom.userType,
+      region: user.custom.region,
+      tier: user.custom.tier,
+      isTestUser: user.custom.isTestUser
+    }
   );
 
   const getColorClass = () => {
-    if (loading) return 'loading';
     return flagValue ? 'enabled' : 'disabled';
   };
 
